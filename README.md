@@ -4,6 +4,8 @@
 # Change the git origin URL to PSH repo URL
     git remote set-url origin <PSH REPO URL>
 
+
+
 # PUSH
     git add <WHATEVER IS IN THE LOCAL REPOT IF ANYTHING>
     git commit -m "first commit"
