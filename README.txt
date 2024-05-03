@@ -1,1 +1,0 @@
-gh repo clone gbdineen/PlatformSH-WP-Starter-Pack && mv -f PlatformSH-WP-Starter-Pack/{.,}* . && rm -r PlatformSH-WP-Starter-Pack
