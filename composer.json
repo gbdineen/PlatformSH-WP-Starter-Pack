@@ -25,7 +25,10 @@
   "require": {
     "php": ">=7.0.0",
     "johnpbloch/wordpress-core-installer": "^1.0 || ^2.0",
-    "johnpbloch/wordpress-core": "dev-master"
+    "johnpbloch/wordpress-core": "dev-master",
+    "wp-cli/wp-cli-bundle": "^2.10",
+    "psy/psysh": "^0.12.3",
+    "platformsh/config-reader": "^2.4"
   },
   "extra": {
     "installer-paths": {
