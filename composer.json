@@ -1,12 +1,12 @@
 {
-  "name": "johnpbloch/wordpress-core",
+  "name": "johnpbloch/wordpress",
   "description": "WordPress is open source software you can use to create a beautiful website, blog, or app.",
   "keywords": [
     "wordpress",
     "blog",
     "cms"
   ],
-  "type": "wordpress-core",
+  "type": "package",
   "homepage": "https://wordpress.org/",
   "license": "GPL-2.0-or-later",
   "authors": [
@@ -18,19 +18,14 @@
   "support": {
     "issues": "https://core.trac.wordpress.org/",
     "forum": "https://wordpress.org/support/",
-    "wiki": "https://codex.wordpress.org/",
+    "docs": "https://developer.wordpress.org/",
     "irc": "irc://irc.freenode.net/wordpress",
     "source": "https://core.trac.wordpress.org/browser"
   },
   "require": {
-    "php": ">=7.2.24",
-    "ext-json": "*",
-    "platformsh/config-reader": "^2.4",
-    "wp-cli/wp-cli-bundle": "^2.10",
-    "psy/psysh": "^0.12.3"
-  },
-  "provide": {
-    "wordpress/core-implementation": "dev-master"
+    "php": ">=7.0.0",
+    "johnpbloch/wordpress-core-installer": "^1.0 || ^2.0",
+    "johnpbloch/wordpress-core": "dev-master"
   },
   "extra": {
     "installer-paths": {
@@ -59,7 +54,8 @@
   ],
   "config": {
     "allow-plugins": {
-      "composer/installers": true
+      "composer/installers": true,
+      "johnpbloch/wordpress-core-installer": true
     }
   }
 }
