@@ -31,8 +31,10 @@ hooks:
         # set -e
         # Copy manually-provided plugins into the plugins directory.
         # This allows manually-provided and composer-provided plugins to coexist.
-        # rsync -a plugins/* wordpress/wp-content/plugins/   
-        # rsync -a themes/* wordpress/wp-content/themes/        
+        rsync -a plugins/* wordpress/wp-content/plugins/   
+        rsync -a themes/* wordpress/wp-content/themes/
+        # Remove stupid STUPID Hello Dolly plugin
+        rm -r wordpress/wp-content/plugins/hello         
 
     # The deploy hook is run after the app container has been started, but before it has started accepting requests.
     # More information: https://docs.platform.sh/create-apps/hooks/hooks-comparison.html#deploy-hook
@@ -51,6 +53,7 @@ hooks:
 # More information: https://docs.platform.sh/create-apps/app-reference.html#relationships
 relationships:
     database: "db:mysql"
+    redis: "rediscache:redis"
 
 # The web key configures the web server running in front of your app.
 # More information: https://docs.platform.sh/create-apps/app-reference.html#web
