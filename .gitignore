@@ -4,6 +4,8 @@
 
 # Project-spefic files (SQL dumps, etc.)
 .DS_Store
+flatleydock052924.sql
+/uploads
 
 # Ignore local configuration files.
 /.env
