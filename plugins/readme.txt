@@ -1,0 +1,1 @@
+Placeholder for plugins folder. Serves no function.
