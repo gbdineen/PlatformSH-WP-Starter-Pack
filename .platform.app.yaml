@@ -6,7 +6,18 @@ name: app
 
 # The runtime the application uses.
 # Complete list of available runtimes: https://docs.platform.sh/create-apps/app-reference.html#types
-type: 'php:8.2'
+type: 'php:7.4'
+
+# CRON JOB FOR UPDATING COMPOSER
+# crons:
+#     update:
+#         # Run the code below every day at midnight.
+#         #------M H D M W
+#         spec: '0 0 * * *'
+#         commands:
+#             start: |
+#                 set -e
+#                 platform source-operation:run update --no-wait --yes
 
 # Specifies a default set of build tasks to run. Flavors are language-specific.
 # More information: https://docs.platform.sh/create-apps/app-reference.html#build
@@ -31,20 +42,20 @@ hooks:
         # set -e
         # Copy manually-provided plugins into the plugins directory.
         # This allows manually-provided and composer-provided plugins to coexist.
-        rsync -a plugins/* wordpress/wp-content/plugins/   
-        rsync -a themes/* wordpress/wp-content/themes/
+        # rsync -a plugins/* wordpress/wp-content/plugins/   
+        # rsync -a themes/* wordpress/wp-content/themes/
         # Remove stupid STUPID Hello Dolly plugin
-        rm -r wordpress/wp-content/plugins/hello         
+        # rm -r wordpress/wp-content/plugins/hello         
 
     # The deploy hook is run after the app container has been started, but before it has started accepting requests.
     # More information: https://docs.platform.sh/create-apps/hooks/hooks-comparison.html#deploy-hook
     deploy: |
         # Flushes the object cache which might have changed between current production and newly deployed changes
-        wp cache flush --path=wordpress/
+        # wp cache flush --path=wordpress/
         # Runs the WordPress database update procedure in case core is being updated with the newly deployed changes
-        wp core update-db --path=wordpress/
+        # wp core update-db --path=wordpress/
         # Runs all cron events that are due now and may have come due during the build+deploy procedure
-        wp cron event run --due-now --path=wordpress/    
+        # wp cron event run --due-now --path=wordpress/    
 
 # The relationships of the application with services or other applications.
 # The left-hand side is the name of the relationship as it will be exposed
@@ -118,18 +129,17 @@ mounts:
 runtime:
     extensions:
         - blackfire
+        - redis
 
-########################################################################################################################
-##                                                                                                                    ##
-## This source operation is part of the Platform.sh process of updating and maintaining our collection of templates.  ##
-## For more information see https://docs.platform.sh/create-apps/source-operations.html and                           ##
-## https://github.com/platformsh/source-operations                                                                    ##
-##                                                                                                                    ##
-##                  YOU CAN SAFELY DELETE THIS COMMENT AND THE LINES BENEATH IT                                       ##
-##                                                                                                                    ##
-########################################################################################################################
-source:
-  operations:
-    auto-update:
-      command: |
-        curl -fsS https://raw.githubusercontent.com/platformsh/source-operations/main/setup.sh | { bash /dev/fd/3 sop-autoupdate; } 3<&0        
+
+# COMPOSER UPDATE CRON JOB
+# source:
+#     operations:
+#         update:
+#             command: |
+#                 set -e
+#                 composer update
+#                 git add composer.lock
+#                 git add -A
+#                 git diff-index --quiet HEAD || git commit --allow-empty -m "Update Composer dependencies"   
+

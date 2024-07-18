@@ -110,7 +110,7 @@ define( 'WP_AUTO_UPDATE_CORE', false );
 
 // Since you can have multiple installations in one database, you need a unique
 // prefix.
-$table_prefix  = 'wxbvb_';
+$table_prefix  = 'wp_';
 
 // Default PHP settings.
 ini_set('session.gc_probability', 1);
