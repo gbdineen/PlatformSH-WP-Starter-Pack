@@ -28,7 +28,7 @@
     "johnpbloch/wordpress-core": "^6.5.3",
     "wp-cli/wp-cli-bundle": "^2.10",
     "psy/psysh": "^0.12.3",
-    "platformsh/config-reader": "^2.4",
+    "platformsh/config-reader": "^2.4"
   },
   "extra": {
     "installer-paths": {
