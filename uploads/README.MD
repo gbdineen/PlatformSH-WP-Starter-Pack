@@ -1,0 +1,1 @@
+# Place uploads from an existing WordPress site in this folder and commit/push to maintain images and media from migrated sites.

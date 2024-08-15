@@ -5,7 +5,6 @@
 # Project-spefic files (SQL dumps, etc.)
 .DS_Store
 *.sql
-*.MD
 # /uploads
 
 # Ignore local configuration files.

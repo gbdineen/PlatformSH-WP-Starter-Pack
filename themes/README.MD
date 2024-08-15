@@ -1,0 +1,1 @@
+# Place cutom wordpress themes in this folder and commit/push. Composer will move the files to the correct location during the build.
