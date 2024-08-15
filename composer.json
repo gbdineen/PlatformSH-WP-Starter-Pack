@@ -59,6 +59,9 @@
     "allow-plugins": {
       "composer/installers": true,
       "johnpbloch/wordpress-core-installer": true
+    },
+    "platform": {
+      "php": "7.4"
     }
   }
 }
