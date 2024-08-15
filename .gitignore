@@ -4,7 +4,8 @@
 
 # Project-spefic files (SQL dumps, etc.)
 .DS_Store
-flatleydock052924.sql
+*.sql
+*.MD
 # /uploads
 
 # Ignore local configuration files.
@@ -31,7 +32,7 @@ flatleydock052924.sql
 /wordpress/wp-config-sample.php
 /wordpress/wp-content/index.php
 /wordpress/wp-content/plugins/index.php
-/wordpress/wp-content/themes/index.php
+/wordpress/wp-content/themes/index.phpÇ
 /wordpress/wp-cron.php
 /wordpress/wp-includes/
 /wordpress/wp-links-opml.php

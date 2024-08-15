@@ -1,1 +1,0 @@
-Placeholder for themes folder. Serves no function.

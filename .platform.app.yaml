@@ -9,6 +9,7 @@ name: app
 type: 'php:7.4'
 
 # CRON JOB FOR UPDATING COMPOSER
+# SEE NOTES AT THE BOTTOM OF THE FILE FOR WHEN/IF TO USE THIS
 # crons:
 #     update:
 #         # Run the code below every day at midnight.
@@ -38,6 +39,8 @@ dependencies:
 hooks:
     # The build hook is run after any build flavor.
     # More information: https://docs.platform.sh/create-apps/hooks/hooks-comparison.html#build-hook
+
+    # UNCOMMENT set -e AND rsync/rm DIRECTIVES ONLY AFTER FIRST DEPLY TO ALLOW WP TO BE INSTALLED
     build: |
         # set -e
         # Copy manually-provided plugins into the plugins directory.
@@ -47,8 +50,9 @@ hooks:
         # Remove stupid STUPID Hello Dolly plugin
         # rm -r wordpress/wp-content/plugins/hello         
 
-    # The deploy hook is run after the app container has been started, but before it has started accepting requests.
-    # More information: https://docs.platform.sh/create-apps/hooks/hooks-comparison.html#deploy-hook
+
+    # UNCOMMENT THE WP DIRECTIVES ONLY AFRTER FIRST DEPLOYMENT OTHERWISE
+    # THE BUILD WILL THROW AN ERROR SAYING WORDPRESS HAS NOT BEEN INSTALLED
     deploy: |
         # Flushes the object cache which might have changed between current production and newly deployed changes
         # wp cache flush --path=wordpress/
@@ -121,9 +125,6 @@ mounts:
     "wordpress/wp-content/uploads":
         source: local
         source_path: "uploads"
-    # "wordpress/wp-content/plugins":
-    #     source: local
-    #     source_path: "plugins"
 
 # More information: https://docs.platform.sh/create-apps/app-reference.html#extensions 
 runtime:
@@ -133,6 +134,7 @@ runtime:
 
 
 # COMPOSER UPDATE CRON JOB
+# DO NOT USE UNLESS YOU ARE CERTAIN ALL PLUGINS ARE ABLE TO UPDATE DURING A MANUAL 'COMPOSER UPDATE' WHICH IS ESSENTIALLY WHAT THIS IS
 # source:
 #     operations:
 #         update:
