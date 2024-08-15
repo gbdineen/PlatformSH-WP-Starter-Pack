@@ -8,7 +8,8 @@
 # Change the git origin URL to PSH repo URL
     git remote set-url origin <PSH REPO URL>
 
-
+# Run Compoer install to create local copy of WordPress files
+    composer install
 
 # PUSH
     git add <WHATEVER IS IN THE LOCAL REPOT IF ANYTHING>
