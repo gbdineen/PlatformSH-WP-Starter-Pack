@@ -114,7 +114,7 @@ web:
                     expires: 1w
 
 # The size of the persistent disk of the application (in MB). Minimum value is 128.
-disk: 3048
+disk: 2048
 
 # Mounts define directories that are writable after the build is complete. If set as a local source, disk property is required.
 # More information: https://docs.platform.sh/create-apps/app-reference.html#mounts
